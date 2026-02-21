@@ -1,3 +1,3 @@
 print("Hello Git")
-print("learning version control")
-print ("I am Janani")
+print("learning version c")
+print("Consistency builds success")
