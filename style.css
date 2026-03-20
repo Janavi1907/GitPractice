@@ -1,7 +1,14 @@
 h1{
-    color:blue;
+    color:#CEDDBB;
 }
 p{
-    color:green;
-    font-size:18px;
+    background-color:#FFE0E9;
+    color:#434343;
+    font-size:20px;
+}
+ul{
+    color:#B9375E;
+}
+h2{
+    color:#BE9A60;
 }
