@@ -1,26 +1,24 @@
 body{
-    background-color:lightpink;
     text-align:center;
     border:2px solid black;
 }
-.head_file{
+#head_file{
+    background-color:lightblue;
     color:darkviolet;
     padding:30px;
 }
-.link{
+.link:hover{
     color:blue;
     padding:10px;
-    hover:color:darkblue;
+    background-color:lightgray;
 }
-.para1{
+.para{
+    background-color:lightgreen;
     color:darkgreen;
     padding:20px;
-}
-.para2{
-    color:darkblue;
-    padding:20px;
-}   
-.foot_file{
+} 
+#foot_file{
+    background-color:lightyellow;
     color:red;
     padding:30px;
 }
