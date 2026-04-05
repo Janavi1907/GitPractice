@@ -1,24 +1,16 @@
-body{
-    text-align:center;
-    border:2px solid black;
+.container{
+   display: flex;
+   justify-content:space-around;
+   align-items:center;
+   height: 800px;
 }
-#head_file{
-    background-color:lightblue;
-    color:darkviolet;
-    padding:30px;
-}
-.link:hover{
-    color:blue;
-    padding:10px;
-    background-color:lightgray;
-}
-.para{
-    background-color:lightgreen;
-    color:darkgreen;
-    padding:20px;
-} 
-#foot_file{
-    background-color:lightyellow;
-    color:red;
-    padding:30px;
+.card{
+    width: 150px;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid black;
+    text-align: center;
+    height: 200px;
+    box-sizing: border-box;
+
 }
