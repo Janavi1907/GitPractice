@@ -15,14 +15,14 @@
     background-color:pink;
     text-align:center;
     border-radius:10px;
-    box-shadow:10px 2px darkgrey;
+    box-shadow:2px 2px 4px lightgrey;
 }
-.button:hover {
+.box:hover {
      background-color: #9196c5; 
      color: white;
  }
-.button{
+button{
     background-color: #baf6f6;
-    color:black;
+    color:blue;
     padding:10px;
 }
