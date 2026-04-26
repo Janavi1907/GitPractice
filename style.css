@@ -1,28 +1,71 @@
+body{
+    margin:20px;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+header{
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+nav{
+    display: flex;
+    padding: 10px;
+    gap:30px;
+    margin: 15px;
+    font-size: 20px;
+    background-color: lightpink;
+    justify-content: center;
+    align-items: center;
+}
+footer{
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    background-color: lightblue;
+}
 .container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:40px;
-    flex-wrap:wrap;
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
 
+.card{
+    width:300px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    color: purple;
+    font-size: 20px;
+    text-align: center;
+    background-color: lightyellow;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;   
 }
-.box{
-    padding:20px;
-    border:2px solid black;
-    width:200px;
-    margin:10px;
-    background-color:pink;
-    text-align:center;
-    border-radius:10px;
-    box-shadow:2px 2px 4px lightgrey;
+.card:hover{
+    background-color:#EFE3CA;
 }
-.box:hover {
-     background-color: #9196c5; 
-     color: white;
- }
+.nav_link:hover{
+    background-color:#FFCEE3;
+    padding: 10px;
+    transition:0.3s;
+}
 button{
-    background-color: #baf6f6;
-    color:blue;
-    padding:10px;
+    padding: 10px;
+    margin: 3px;
+    background-color:#FF537B;
+    font-family: times new roman;
+    color: #FFF1D3;
+    font-size: 20px;
+    border: none;
+}
+button:hover{
+    background-color:#9B8EC7;
 }

@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinWise - Financial Literacy</title>
+    <!-- SEO Best Practices -->
+    <meta name="description"
+        content="FinWise - Your personal money guide and financial literacy app. Learn to manage your money, track your goals, and master investing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --sage: #2D6A4F;
+            --sage-light: #40916C;
+            --sage-dim: #1B4332;
+            --mint: #74C69D;
+            --mint-light: #B7E4C7;
+            --cream: #FEFAE0;
+            --warm: #DDA15E;
+            --gold: #BC6C25;
+            --sky: #4ECDC4;
+            --coral: #FF6B6B;
+            --bg: #F7F3EE;
+            --text: #1A1A2E;
+            --text2: #4A4A6A;
+            --text3: #9090AA;
+            --page-bg: #1A1A2E;
+            --card-radius: 14px;
+            --btn-radius: 20px;
+            --padding-card: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .heading-font {
+            font-family: 'Fraunces', serif;
+        }
+
+        /* Nav bar above phones */
+        .top-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+        }
+
+        .top-nav button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--btn-radius);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .top-nav button:hover,
+        .top-nav button.active {
+            background: var(--mint);
+            color: var(--text);
+            border-color: var(--mint);
+        }
+
+        /* Phones Container */
+        .phones-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+            scroll-behavior: smooth;
+            /* hide scrollbar */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .phones-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .phones-container {
+            display: flex;
+            gap: 3rem;
+            justify-content: flex-start;
+            min-width: max-content;
+            padding: 1rem;
+        }
+
+        /* Phone Frame */
+        .phone {
+            width: 320px;
+            height: 680px;
+            border-radius: 48px;
+            border: 12px solid #0B0B19;
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .phone.highlight {
+            box-shadow: 0 0 0 4px var(--mint), 0 20px 40px rgba(116, 198, 157, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Status Bar */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px 8px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10;
+            color: inherit;
+        }
+
+        .status-bar-dark {
+            color: white;
+        }
+
+        .status-bar-light {
+            color: var(--text);
+        }
+
+        /* Common Screen Elements */
+        .screen-content {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            /* hide scrollbar */
+            scrollbar-width: none;
+        }
+
+        .screen-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 8px 24px;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            color: var(--text3);
+            cursor: pointer;
+        }
+
+        .bottom-nav-item.active {
+            color: var(--sage);
+            font-weight: 600;
+        }
+
+        .bottom-nav-icon {
+            font-size: 20px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--sage);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: var(--btn-radius);
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, background 0.2s;
+            text-align: center;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-light);
+        }
+
+        /* ---- Screen 1: Onboarding ---- */
+        .s1 {
+            background: linear-gradient(180deg, var(--sage-dim) 0%, #08120d 100%);
+            color: white;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .s1-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: auto;
+        }
+
+        .s1-logo-icon {
+            background: var(--mint);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .s1-logo-text {
+            font-family: 'Fraunces', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .s1-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: -40px;
+        }
+
+        .s1-glowing-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(116, 198, 157, 0.2) 0%, transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .s1-glowing-circle::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px dashed var(--mint);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .s1-icon {
+            font-size: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .s1-title {
+            font-size: 36px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .s1-sub {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .s1-bottom {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .s1-login {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+
+        .s1-login:hover {
+            color: white;
+        }
+
+        /* ---- Screen 2: Money Score ---- */
+        .s2 {
+            background: var(--cream);
+            padding: 20px;
+        }
+
+        .s2-step {
+            font-size: 12px;
+            color: var(--text3);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .s2-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .s2-dot {
+            width: 8px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .s2-dot.active {
+            background: var(--sage);
+        }
+
+        .s2-title {
+            font-size: 28px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .s2-sub {
+            font-size: 14px;
+            color: var(--text2);
+            margin-bottom: 32px;
+        }
+
+        .s2-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 32px;
+        }
+
+        .s2-q {
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .s2-opt {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background: white;
+            text-align: left;
+            font-family: inherit;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text);
+        }
+
+        .s2-opt:hover {
+            border-color: var(--sage-light);
+        }
+
+        .s2-opt.selected {
+            background: var(--mint-light);
+            border-color: var(--sage);
+            color: var(--sage-dim);
+            font-weight: 600;
+        }
+
+        .s2-score {
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        .s2-chart {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 16px;
+        }
+
+        .s2-chart svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .s2-chart circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .s2-chart .bg {
+            stroke: rgba(0, 0, 0, 0.05);
+        }
+
+        .s2-chart .fg {
+            stroke: var(--sage);
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+
+        .s2-score-val {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--sage-dim);
+        }
+
+        .s2-score-lbl {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .s2-score-sub {
+            font-size: 12px;
+            color: var(--text3);
+        }
+
+        /* ---- Screen 3: Home Dashboard ---- */
+        .s3 {
+            background: var(--bg);
+        }
+
+        .s3-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px 10px;
+        }
+
+        .s3-greeting {
+            font-weight: 600;
+        }
+
+        .s3-bell {
+            font-size: 20px;
+        }
+
+        .s3-streak {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--sage-light);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 20px 16px;
+        }
+
+        .s3-banner {
+            margin: 0 20px 24px;
+            background: var(--sage);
+            border-radius: var(--card-radius);
+            padding: 16px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+        }
+
+        .s3-banner-chart {
+            width: 48px;
+            height: 48px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .s3-banner-chart svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .s3-banner-chart circle {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+        }
+
+        .s3-banner-chart .bg {
+            stroke: rgba(255, 255, 255, 0.2);
+        }
+
+        .s3-banner-chart .fg {
+            stroke: var(--mint);
+            stroke-dasharray: 107;
+            stroke-dashoffset: 34;
+        }
+
+        .s3-banner-score {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .s3-banner-text {
+            flex: 1;
+        }
+
+        .s3-banner-title {
+            font-family: 'Fraunces', serif;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .s3-banner-sub {
+            font-size: 11px;
+            color: var(--mint-light);
+        }
+
+        .s3-section {
+            margin-bottom: 24px;
+            padding: 0 20px;
+        }
+
+        .s3-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .s3-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .s3-lesson {
+            display: flex;
+            gap: 12px;
+        }
+
+        .s3-lesson-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .s3-lesson-content {
+            flex: 1;
+        }
+
+        .s3-lesson-tag {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--sage);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .s3-lesson-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .s3-lesson-meta {
+            font-size: 12px;
+            color: var(--text3);
+            margin-bottom: 8px;
+        }
+
+        .btn-sm {
+            background: var(--sage);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .s3-goals {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .s3-goal {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .s3-goal-icon {
+            font-size: 20px;
+        }
+
+        .s3-goal-info {
+            flex: 1;
+        }
+
+        .s3-goal-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .s3-goal-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .s3-goal-amt {
+            color: var(--text3);
+            font-size: 11px;
+        }
+
+        .s3-progress-bg {
+            height: 4px;
+            background: var(--bg);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .s3-progress-fg {
+            height: 100%;
+            background: var(--mint);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+
+        .s3-goal-pct {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--sage);
+            width: 30px;
+            text-align: right;
+        }
+
+        .s3-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .s3-grid-item {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .s3-grid-icon {
+            font-size: 16px;
+        }
+
+        /* ---- Screen 4: Lesson ---- */
+        .s4 {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .s4-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+        }
+
+        .s4-back {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .s4-prog-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text2);
+            margin-left: auto;
+        }
+
+        .s4-prog-bar {
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            right: 20px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
+        }
+
+        .s4-prog-fill {
+            height: 100%;
+            background: var(--sage);
+            width: 43%;
+            border-radius: 2px;
+        }
+
+        .s4-content {
+            padding: 20px;
+            padding-top: 10px;
+        }
+
+        .s4-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(116, 198, 157, 0.2);
+            color: var(--sage-dim);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .s4-title {
+            font-size: 32px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--sage-dim);
+        }
+
+        .s4-visual {
+            background: var(--sage-dim);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .s4-v-lbl {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--mint-light);
+            margin-bottom: 8px;
+        }
+
+        .s4-v-form {
+            font-family: monospace;
+            font-size: 20px;
+            color: var(--mint);
+            margin-bottom: 16px;
+        }
+
+        .s4-v-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .s4-body {
+            font-size: 15px;
+            color: var(--text2);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .s4-callout {
+            border: 1px solid var(--gold);
+            background: rgba(221, 161, 94, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .s4-action-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .s4-action-card {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 32px;
+        }
+
+        .s4-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--sage);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .s4-action-txt {
+            font-size: 14px;
+            color: var(--text2);
+        }
+
+        .s4-btn-wrap {
+            padding: 0 20px 20px;
+            margin-top: auto;
+        }
+
+        /* ---- Screen 5: Finn AI ---- */
+        .s5 {
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .s5-header {
+            background: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .s5-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--mint-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .s5-online {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: #4ECDC4;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+
+        .s5-h-info {
+            flex: 1;
+        }
+
+        .s5-h-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .s5-h-sub {
+            font-size: 11px;
+            color: var(--text3);
+        }
+
+        .s5-pill {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text2);
+        }
+
+        .s5-chat {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            overflow-y: auto;
+        }
+
+        .msg {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .msg.bot {
+            background: white;
+            color: var(--text);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .msg.user {
+            background: var(--sage);
+            color: white;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+
+        .s5-chips {
+            padding: 0 20px 12px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .s5-chips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .s5-chip {
+            white-space: nowrap;
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--sage);
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .s5-input-area {
+            padding: 12px 20px 24px;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .s5-input-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg);
+            border-radius: 24px;
+            padding: 6px 6px 6px 16px;
+        }
+
+        .s5-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .s5-send {
+            width: 32px;
+            height: 32px;
+            background: var(--sage);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Toast */
+        .toast {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--sage-dim);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            z-index: 50;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ---- Design System Section ---- */
+        .design-system {
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .ds-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 32px;
+        }
+
+        .ds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .ds-card {
+            background: #23233D;
+            border-radius: var(--card-radius);
+            padding: 24px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ds-card-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--mint);
+        }
+
+        .ds-card-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Color swatches inside DS card */
+        .color-swatches {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .swatch {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .phones-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 4rem;
+                padding: 0;
+            }
+
+            .phones-wrapper {
+                overflow-x: visible;
+            }
+
+            .ds-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .msg.new {
+            animation: slideUp 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="top-nav">
+        <button onclick="scrollToPhone(1)" class="active" id="nav-btn-1">Onboarding</button>
+        <button onclick="scrollToPhone(2)" id="nav-btn-2">Money Score</button>
+        <button onclick="scrollToPhone(3)" id="nav-btn-3">Home Dashboard</button>
+        <button onclick="scrollToPhone(4)" id="nav-btn-4">Lesson</button>
+        <button onclick="scrollToPhone(5)" id="nav-btn-5">Finn AI</button>
+    </nav>
+
+    <div class="phones-wrapper" id="scroll-wrapper">
+        <div class="phones-container">
+
+            <!-- PHONE 1: ONBOARDING -->
+            <div class="phone s1 highlight" id="phone-1">
+                <div class="status-bar status-bar-dark">
+                    <span>9:41</span>
+                    <span>📶 🛜 🔋</span>
+                </div>
+                <div class="screen-content s1">
+                    <div class="s1-logo">
+                        <div class="s1-logo-icon">💰</div>
+                        <div class="s1-logo-text">FinWise</div>
+                    </div>
+
+                    <div class="s1-center">
+                        <div class="s1-glowing-circle">
+                            <div class="s1-icon">💡</div>
+                        </div>
+                        <h1 class="s1-title heading-font">Your money.<br>Finally makes sense.</h1>
+                        <p class="s1-sub">5 minutes a day. Real financial skills. Built for your life stage.</p>
+                    </div>
+
+                    <div class="s1-bottom">
+                        <button class="btn-primary" onclick="scrollToPhone(2)">Get Started — It's Free</button>
+                        <a href="#" class="s1-login">Already have an account? Sign in</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHONE 2: MONEY SCORE -->
+            <div class="phone s2-bg" id="phone-2">
+                <div class="status-bar status-bar-light">
+                    <span>9:41</span>
+                    <span>📶 🛜 🔋</span>
+                </div>
+                <div class="screen-content s2">
+                    <div class="s2-step">
+                        Step 2 of 5
+                        <div class="s2-dots">
+                            <div class="s2-dot active"></div>
+                            <div class="s2-dot active"></div>
+                            <div class="s2-dot"></div>
+                            <div class="s2-dot"></div>
+                            <div class="s2-dot"></div>
+                        </div>
+                    </div>
+                    <h2 class="s2-title heading-font">Let's check your money health</h2>
+                    <p class="s2-sub">8 quick questions. Takes 90 seconds.</p>
+
+                    <div class="s2-card">
+                        <div class="s2-q">Do you have an emergency fund?</div>
+                        <button class="s2-opt" onclick="selectOpt(this)">Yes, 3+ months</button>
+                        <button class="s2-opt" onclick="selectOpt(this)">Yes, 1–2 months</button>
+                        <button class="s2-opt" onclick="selectOpt(this)">Working on it</button>
+                        <button class="s2-opt" onclick="selectOpt(this)">Not yet</button>
+                    </div>
+
+                    <div class="s2-score">
+                        <div class="s2-chart">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="fg" cx="50" cy="50" r="45" id="score-ring"></circle>
+                            </svg>
+                            <div class="s2-score-val">68</div>
+                        </div>
+                        <div class="s2-score-lbl">Money Health Score</div>
+                        <div class="s2-score-sub">You're doing better than 61% of people your age</div>
+                    </div>
+
+                    <button class="btn-primary" onclick="scrollToPhone(3)">See my full breakdown &rarr;</button>
+                </div>
+            </div>
+
+            <!-- PHONE 3: HOME DASHBOARD -->
+            <div class="phone s3" id="phone-3">
+                <div class="status-bar status-bar-light">
+                    <span>9:41</span>
+                    <span>📶 🛜 🔋</span>
+                </div>
+                <div class="screen-content">
+                    <div class="s3-top">
+                        <div class="s3-greeting">Good morning, Arjun 👋</div>
+                        <div class="s3-bell">🔔</div>
+                    </div>
+                    <div class="s3-streak">🔥 12-day streak</div>
+
+                    <div class="s3-banner">
+                        <div class="s3-banner-chart">
+                            <svg viewBox="0 0 40 40">
+                                <circle class="bg" cx="20" cy="20" r="17"></circle>
+                                <circle class="fg" cx="20" cy="20" r="17"></circle>
+                            </svg>
+                            <div class="s3-banner-score">68</div>
+                        </div>
+                        <div class="s3-banner-text">
+                            <div class="s3-banner-title">Money Health Score</div>
+                            <div class="s3-banner-sub">&uarr; +5 from last week</div>
+                        </div>
+                    </div>
+
+                    <div class="s3-section">
+                        <div class="s3-section-title">Today's Lesson</div>
+                        <div class="s3-card s3-lesson">
+                            <div class="s3-lesson-icon">🏦</div>
+                            <div class="s3-lesson-content">
+                                <div class="s3-lesson-tag">Investing</div>
+                                <div class="s3-lesson-title">What is an Emergency Fund?</div>
+                                <div class="s3-lesson-meta">5 min &middot; Beginner</div>
+                                <button class="btn-sm" onclick="scrollToPhone(4)">Start</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s3-section">
+                        <div class="s3-section-title">Your Goals</div>
+                        <div class="s3-goals">
+                            <div class="s3-goal">
+                                <div class="s3-goal-icon">🛡️</div>
+                                <div class="s3-goal-info">
+                                    <div class="s3-goal-header">
+                                        <span class="s3-goal-name">Emergency Fund</span>
+                                        <span class="s3-goal-amt">$2,400 saved</span>
+                                    </div>
+                                    <div class="s3-progress-bg">
+                                        <div class="s3-progress-fg" data-target="48%"></div>
+                                    </div>
+                                </div>
+                                <div class="s3-goal-pct">48%</div>
+                            </div>
+                            <div class="s3-goal">
+                                <div class="s3-goal-icon">✈️</div>
+                                <div class="s3-goal-info">
+                                    <div class="s3-goal-header">
+                                        <span class="s3-goal-name">Trip to Japan</span>
+                                        <span class="s3-goal-amt">$690 saved</span>
+                                    </div>
+                                    <div class="s3-progress-bg">
+                                        <div class="s3-progress-fg" data-target="23%"></div>
+                                    </div>
+                                </div>
+                                <div class="s3-goal-pct">23%</div>
+                            </div>
+                            <div class="s3-goal">
+                                <div class="s3-goal-icon">📈</div>
+                                <div class="s3-goal-info">
+                                    <div class="s3-goal-header">
+                                        <span class="s3-goal-name">First Investment</span>
+                                        <span class="s3-goal-amt">$500 target</span>
+                                    </div>
+                                    <div class="s3-progress-bg">
+                                        <div class="s3-progress-fg" data-target="10%"></div>
+                                    </div>
+                                </div>
+                                <div class="s3-goal-pct">10%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s3-section">
+                        <div class="s3-section-title">Quick Actions</div>
+                        <div class="s3-grid">
+                            <div class="s3-grid-item" onclick="scrollToPhone(5)">
+                                <div class="s3-grid-icon">💬</div> Ask Finn AI
+                            </div>
+                            <div class="s3-grid-item">
+                                <div class="s3-grid-icon">🧮</div> Calculators
+                            </div>
+                            <div class="s3-grid-item">
+                                <div class="s3-grid-icon">📊</div> My Score
+                            </div>
+                            <div class="s3-grid-item">
+                                <div class="s3-grid-icon">🗺️</div> My Roadmap
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-nav">
+                    <div class="bottom-nav-item active">
+                        <div class="bottom-nav-icon">🏠</div> Home
+                    </div>
+                    <div class="bottom-nav-item" onclick="scrollToPhone(4)">
+                        <div class="bottom-nav-icon">📚</div> Learn
+                    </div>
+                    <div class="bottom-nav-item" onclick="scrollToPhone(5)">
+                        <div class="bottom-nav-icon">💬</div> Finn AI
+                    </div>
+                    <div class="bottom-nav-item">
+                        <div class="bottom-nav-icon">🎯</div> Goals
+                    </div>
+                    <div class="bottom-nav-item">
+                        <div class="bottom-nav-icon">👤</div> Profile
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHONE 4: LESSON -->
+            <div class="phone s4-bg" id="phone-4">
+                <div class="status-bar status-bar-light">
+                    <span>9:41</span>
+                    <span>📶 🛜 🔋</span>
+                </div>
+                <div class="screen-content s4">
+                    <div class="s4-top">
+                        <button class="s4-back" onclick="scrollToPhone(3)">&larr;</button>
+                        <div class="s4-prog-text">Lesson 3 of 7 &middot; 43%</div>
+                    </div>
+                    <div class="s4-prog-bar">
+                        <div class="s4-prog-fill"></div>
+                    </div>
+
+                    <div class="s4-content">
+                        <div class="s4-tag">🌱 Investing Basics</div>
+                        <h2 class="s4-title heading-font">Compound Interest: The 8th Wonder</h2>
+
+                        <div class="s4-visual">
+                            <div class="s4-v-lbl">The Formula</div>
+                            <div class="s4-v-form">A = P(1 + r/n)^(nt)</div>
+                            <div class="s4-v-box">
+                                💡 Investing $200/month from age 22 &rarr; $98,740 by age 40
+                            </div>
+                        </div>
+
+                        <div class="s4-body">
+                            Compound interest means you earn interest on your interest. It is the most powerful force in
+                            investing. The earlier you start, the less money you actually have to put in to reach your
+                            goals.
+                        </div>
+
+                        <div class="s4-callout">
+                            ⚡ Starting just 10 years earlier could give you $60,000 more by retirement, even if you
+                            invest less total cash.
+                        </div>
+
+                        <div class="s4-action-title">Your action today</div>
+                        <div class="s4-action-card">
+                            <div class="s4-checkbox"></div>
+                            <div class="s4-action-txt">Open our compound calculator and type in your current age and a
+                                $50/mo contribution.</div>
+                        </div>
+                    </div>
+
+                    <div class="s4-btn-wrap">
+                        <button class="btn-primary" onclick="completeLesson()">Got it — next &rarr;</button>
+                    </div>
+                </div>
+                <div class="toast" id="lesson-toast">Lesson complete! +10 XP 🎉</div>
+
+                <div class="bottom-nav">
+                    <div class="bottom-nav-item" onclick="scrollToPhone(3)">
+                        <div class="bottom-nav-icon">🏠</div> Home
+                    </div>
+                    <div class="bottom-nav-item active">
+                        <div class="bottom-nav-icon">📚</div> Learn
+                    </div>
+                    <div class="bottom-nav-item" onclick="scrollToPhone(5)">
+                        <div class="bottom-nav-icon">💬</div> Finn AI
+                    </div>
+                    <div class="bottom-nav-item">
+                        <div class="bottom-nav-icon">🎯</div> Goals
+                    </div>
+                    <div class="bottom-nav-item">
+                        <div class="bottom-nav-icon">👤</div> Profile
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHONE 5: FINN AI -->
+            <div class="phone" id="phone-5">
+                <div class="status-bar status-bar-light">
+                    <span>9:41</span>
+                    <span>📶 🛜 🔋</span>
+                </div>
+                <div class="screen-content s5">
+                    <div class="s5-header">
+                        <div class="s5-avatar">🌿<div class="s5-online"></div>
+                        </div>
+                        <div class="s5-h-info">
+                            <div class="s5-h-name">Finn &mdash; Your Money Guide</div>
+                            <div class="s5-h-sub">Always here to help</div>
+                        </div>
+                        <div class="s5-pill">3 left today</div>
+                    </div>
+
+                    <div class="s5-chat" id="chat-container">
+                        <div class="msg bot">Hi Arjun 👋 I'm Finn, your personal money guide. Ask me anything...</div>
+                        <div class="msg user">Should I pay off my credit card first or start investing?</div>
+                        <div class="msg bot">
+                            Great question! Generally, you should tackle high-interest debt (like credit cards) first.
+                            💳<br><br>
+                            Credit cards often charge 18-25% interest, while the stock market returns ~8-10% on average.
+                            Paying off the card guarantees a higher "return" on your money.<br><br>
+                            Do you know your current APR?
+                        </div>
+                    </div>
+
+                    <div class="s5-chips">
+                        <div class="s5-chip" onclick="fillInput('What\'s a good emergency fund size?')">What's a good
+                            emergency fund size?</div>
+                        <div class="s5-chip" onclick="fillInput('How do index funds work?')">How do index funds work?
+                        </div>
+                        <div class="s5-chip" onclick="fillInput('Explain ISA accounts')">Explain ISA accounts</div>
+                    </div>
+
+                    <div class="s5-input-area">
+                        <div class="s5-input-box">
+                            <input type="text" class="s5-input" id="chat-input" placeholder="Ask Finn anything..."
+                                onkeypress="handleKeyPress(event)">
+                            <button class="s5-send" onclick="sendMessage()">&uarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="design-system">
+        <h2 class="ds-title heading-font">Design System</h2>
+        <div class="ds-grid">
+            <div class="ds-card">
+                <div class="ds-card-title">🎨 Colour Palette</div>
+                <div class="ds-card-desc">Earthy, calming tones to reduce financial anxiety. Sage greens build trust,
+                    warm creams provide comfort.</div>
+                <div class="color-swatches">
+                    <div class="swatch" style="background: var(--sage)"></div>
+                    <div class="swatch" style="background: var(--mint)"></div>
+                    <div class="swatch" style="background: var(--cream)"></div>
+                    <div class="swatch" style="background: var(--warm)"></div>
+                    <div class="swatch" style="background: var(--sky)"></div>
+                </div>
+            </div>
+            <div class="ds-card">
+                <div class="ds-card-title">✍️ Typography</div>
+                <div class="ds-card-desc">Fraunces (Serif) for authoritative, editorial headings. Plus Jakarta Sans for
+                    clean, legible data and body copy.</div>
+            </div>
+            <div class="ds-card">
+                <div class="ds-card-title">📐 Components</div>
+                <div class="ds-card-desc">Soft radiuses (14px-20px), subtle borders instead of heavy shadows. Gives a
+                    tactile, modern app feel.</div>
+            </div>
+            <div class="ds-card">
+                <div class="ds-card-title">🤝 Tone</div>
+                <div class="ds-card-desc">Friendly, encouraging, and jargon-free. Uses emojis thoughtfully to add warmth
+                    without being childish.</div>
+            </div>
+            <div class="ds-card">
+                <div class="ds-card-title">♿ Accessibility</div>
+                <div class="ds-card-desc">High contrast text, clear focus states, legible font sizes (min 12px), and
+                    clear touch targets.</div>
+            </div>
+            <div class="ds-card">
+                <div class="ds-card-title">📱 Build Stack</div>
+                <div class="ds-card-desc">Vanilla HTML/CSS/JS. CSS Custom Variables for theming. Fully responsive
+                    flexbox/grid layout. No dependencies.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation and highlighting
+        function scrollToPhone(index) {
+            // Update buttons
+            document.querySelectorAll('.top-nav button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`nav-btn-${index}`).classList.add('active');
+
+            // Highlight phone
+            document.querySelectorAll('.phone').forEach(p => p.classList.remove('highlight'));
+            const targetPhone = document.getElementById(`phone-${index}`);
+            targetPhone.classList.add('highlight');
+
+            // Scroll if on desktop
+            if (window.innerWidth > 768) {
+                targetPhone.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }
+
+        // Onboarding Selection
+        function selectOpt(btn) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.s2-opt').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        // Lesson Toast
+        function completeLesson() {
+            const toast = document.getElementById('lesson-toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                scrollToPhone(5); // Move to AI next
+            }, 3000);
+        }
+
+        // Chat functionality
+        function fillInput(text) {
+            document.getElementById('chat-input').value = text;
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chat = document.getElementById('chat-container');
+
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'msg user new';
+            userMsg.textContent = text;
+            chat.appendChild(userMsg);
+
+            input.value = '';
+            chat.scrollTop = chat.scrollHeight;
+
+            // Simulate bot reply
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'msg bot new';
+                botMsg.innerHTML = 'Great question! I\'ll need a bit more detail — try asking me something specific like your credit card interest rate.';
+                chat.appendChild(botMsg);
+                chat.scrollTop = chat.scrollHeight;
+            }, 1000);
+        }
+
+        // Animation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Animate goal bars
+            setTimeout(() => {
+                document.querySelectorAll('.s3-progress-fg').forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-target');
+                });
+            }, 500);
+
+            // Animate score ring
+            setTimeout(() => {
+                const ring = document.getElementById('score-ring');
+                // roughly 68% of 283 (which is 2 * pi * 45) -> 192 offset approx
+                // dashoffset goes from 283 to (283 - 283*0.68) = 90
+                if (ring) {
+                    ring.style.strokeDashoffset = '90';
+                }
+            }, 800);
+        });
+
+        // Sync scroll to nav highlights
+        const wrapper = document.getElementById('scroll-wrapper');
+        let isScrolling;
+        wrapper.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                if (window.innerWidth > 768) {
+                    const phones = document.querySelectorAll('.phone');
+                    let minDistance = Infinity;
+                    let closestIndex = 1;
+
+                    phones.forEach((phone, index) => {
+                        const rect = phone.getBoundingClientRect();
+                        const phoneCenter = rect.left + rect.width / 2;
+                        const distance = Math.abs(phoneCenter - (window.innerWidth / 2));
+
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestIndex = index + 1;
+                        }
+                    });
+
+                    document.querySelectorAll('.top-nav button').forEach(btn => btn.classList.remove('active'));
+                    const activeBtn = document.getElementById(`nav-btn-${closestIndex}`);
+                    if (activeBtn) activeBtn.classList.add('active');
+
+                    document.querySelectorAll('.phone').forEach(p => p.classList.remove('highlight'));
+                    const activePhone = document.getElementById(`phone-${closestIndex}`);
+                    if (activePhone) activePhone.classList.add('highlight');
+                }
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
