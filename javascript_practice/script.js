@@ -1,16 +1,16 @@
-let name="Janavi"
-let age=18
-let clg_name="SIRMVIT"
-let branch="CSE-DS"
-let sem="2nd SEM"
-console.log(name)
-console.log(age)
-console.log(clg_name)
-console.log(branch)
-console.log(sem)
-let Name="janavi"
-let Age=18
-let IsStudent=true
-console.log(Name)
-console.log(Age)
-console.log(IsStudent)
+let name=prompt("Enter your name:")
+let age=prompt("Enter your age:")
+let college=prompt("Enter your college name:")
+console.log("Name:" + name)
+console.log("Age:" + age)
+console.log("College:" + college)
+alert("Name:" + name)
+alert("Age:" + age)
+alert("College:" + college)
+let a=10
+let b=1
+console.log("Addition:" + (a + b))
+console.log("Subtraction:" + (a - b))
+console.log("Multiplication:" + (a * b))
+console.log("Division:" + (a / b))
+console.log("Modulus:" + (a % b))
