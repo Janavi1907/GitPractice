@@ -1,0 +1,16 @@
+let name=prompt("Enter your name:") 
+let age=prompt("Enter your age:") 
+let college=prompt("Enter your college name:") 
+console.log("Name:" + name) 
+console.log("Age:" + age) 
+console.log("College:" + college) 
+alert("Name:" + name) 
+alert("Age:" + age) 
+alert("College:" + college) 
+let a=10 
+let b=1 
+console.log("Addition:" + (a + b)) 
+console.log("Subtraction:" + (a - b)) 
+console.log("Multiplication:" + (a * b)) 
+console.log("Division:" + (a / b)) 
+console.log("Modulus:" + (a % b))
