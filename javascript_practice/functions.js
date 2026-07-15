@@ -1,4 +1,5 @@
 // PROGRAM 1
+/*
 function intro(){
     console.log("Welcome to Javascript")
 }
@@ -70,3 +71,4 @@ function larger(a,b){
     }
 }
 console.log("The largerest of two numbers is: "+ larger(15,7))
+*/

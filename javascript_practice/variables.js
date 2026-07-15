@@ -1,3 +1,4 @@
+/*
 let name="Janavi" 
 let age=18 
 let clg_name="SIRMVIT" 
@@ -14,3 +15,4 @@ let IsStudent=true
 console.log(Name) 
 console.log(Age) 
 console.log(IsStudent)
+*/

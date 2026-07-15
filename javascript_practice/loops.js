@@ -1,4 +1,5 @@
 // PROGRAM 1
+/*
 for (let a = 1; a <= 10; a++) {
     console.log(a)
 }
@@ -45,3 +46,4 @@ do{
     console.log(j)
     j++
 }while(j<=5)
+*/

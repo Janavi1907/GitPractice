@@ -1,3 +1,4 @@
+/*
 let name=prompt("Enter your name:") 
 let age=prompt("Enter your age:") 
 let college=prompt("Enter your college name:") 
@@ -14,3 +15,4 @@ console.log("Subtraction:" + (a - b))
 console.log("Multiplication:" + (a * b)) 
 console.log("Division:" + (a / b)) 
 console.log("Modulus:" + (a % b))
+*/

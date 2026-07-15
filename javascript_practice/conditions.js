@@ -1,4 +1,5 @@
 //PROGRAM 1 
+/*
 let a=prompt("Enter a number:") 
 if(a>0){ 
     console.log("Positive number") 
@@ -54,3 +55,4 @@ else if(num1==num2){
 else{ 
     console.log("Greater number is:" + num2) 
 } 
+*/
