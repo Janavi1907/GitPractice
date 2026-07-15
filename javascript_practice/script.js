@@ -1,74 +1,47 @@
-// let name=prompt("Enter your name:")
-// let age=prompt("Enter your age:")
-// let college=prompt("Enter your college name:")
-// console.log("Name:" + name)
-// console.log("Age:" + age)
-// console.log("College:" + college)
-// alert("Name:" + name)
-// alert("Age:" + age)
-// alert("College:" + college)
-// let a=10
-// let b=1
-// console.log("Addition:" + (a + b))
-// console.log("Subtraction:" + (a - b))
-// console.log("Multiplication:" + (a * b))
-// console.log("Division:" + (a / b))
-// console.log("Modulus:" + (a % b))
-
-//PROGRAM 1
-let a=prompt("Enter a number:")
-if(a>0){
-    console.log("Positive number")
-}
-else if(a==0){
-    console.log("Zero")
-}
-else{
-    console.log("Negative Number")
+// PROGRAM 1
+for (let a = 1; a <= 10; a++) {
+    console.log(a)
 }
 
-//PROGRAM 2
-let b=prompt("Enter a Number:")
-if(b%2==0){
-    console.log("Even Number")
-}
-else{
-    console.log("Odd Number")
+// PROGRAM 2
+for (let b = 10; b >= 1; b--) {
+    console.log(b)
 }
 
-//PROGRAM 3
-let age=prompt("Enter your age:")
-if (age>=18){
-    console.log("Eligible to vote")
-}
-else{
-    console.log("not eligible to vote")
+// PROGRAM 3
+for (let c = 2; c <= 50; c+=2) {
+    console.log(c)
 }
 
-//PROGRAM 4
-let marks=prompt("Enter your marks:")
-if (marks>=90){
-    console.log("Grade A")
-}
-else if(marks>=70){
-    console.log("Grade B")
-}
-else if (marks>=50){
-    console.log("Grade C")
-}
-else {
-    console.log("Fail")
+// PROGRAM 4
+for (let d = 1; d <= 50; d+=2) {
+    console.log(d)
 }
 
-//PROGRAM 5
-let num1=prompt("Enter first number:")
-let num2=prompt("Enter second number:")
-if(num1>num2){
-    console.log("Greater number is:" + num1)
+// PROGRAM 5
+let n=prompt("Enter a number: ")
+n=Number.parseInt(n)
+for (let i=1; i<=10; i++) {
+    console.log(n + " X " + i + " = " + (n * i))
 }
-else if(num1==num2){
-    console.log("Both numbers are equal")
+
+// PROGRAM 6
+let sum=0
+for (let e=1; e<=100 ; e++) {
+    sum += e
 }
-else{
-    console.log("Greater number is:" + num2)
+console.log(sum)
+
+// PROGRAM 7
+let f=1
+while(f<=20){
+    console.log(f)
+    f++
 }
+
+// PROGRAM 8
+let j=1
+do{
+    console.log(j)
+    j++
+}while(j<=5)
