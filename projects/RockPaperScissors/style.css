@@ -27,12 +27,14 @@ body{
     font-size: 20px;
     padding: 10px;
 }
-#choice{
+#choice, #compChoice, #result{
     text-align: center;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     color:#5A2A27;
+    padding: 5px;
 }
+
 button{
     border-radius:50%;
     background-color: #A5978B;
@@ -42,7 +44,7 @@ button{
     border:none;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     text-align: center;
-    backgroung-image: none;
+    background-image: none;
 }
 button:hover{
     cursor: pointer;
@@ -58,4 +60,3 @@ button img{
     filter: contrast(110%) brightness(105%);
     border-radius:20px;
 }
-
