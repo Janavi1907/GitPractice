@@ -10,65 +10,198 @@ body{
 #header a {
     text-decoration: none;
     border:0px;
-    background-color: #618764;
     color: #F2E3BB;
 }
-
+#name{
+    font-size: 25px;
+}
 #header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #618764;
-    padding: 10px;
+    padding: 20px;
     color: #F2E3BB;
-    font-size: 10px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 #header a:hover {
-    background-color: #F2E3BB;
-    color: #618764;
+    color: #152c36;
 }
 nav {
     display: flex;          
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     background-color:#618764;
-} 
-header p {
-    background-color: #618764;
-}         
-
-section {
-    height: 200px;
+}
+nav a:active {
+    transform: scale(0.95);
+}
+.first_selection {
     color: #F2E3BB;
-    font-size: 20px;
-    font-weight: bold;
-    gap: 10px;
-    padding: 40px 30px;
+    font-size: 45px;
+    margin: 40px 50px;
 }
 #intro{
-    height:100px;
-    width: 300px;
-    line-height:1.2;
+    width:650px;
+    line-height:1.3;
 }
 h3{
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
-section button {
-    padding: 5px 20px;
+#janu{
+    color: #152c36;
+}
+#secondline{
+    width:650px;
+}
+.first_selection button {
+    padding: 18px 55px;
     border-radius: 5px;
     border: none;
     background-color: #f3dfa8;
     color: #4b744e;
-    font-size: 16px;
+    font-size: 27px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 50px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.1s ease, background-color 0.1s ease;
 }
-
-section button:hover {
+.first_selection button:active {
+    transform: scale(0.95);
+}
+.first_selection button:hover {
     background-color: #0e2310;
     color: #f1e4be;
-    transition:0.2s ease;
+}
+.first_selection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.first_selection img{
+    height: 325px;
+}
+#about{
+    margin: 40px 50px;
+    color: #F2E3BB;
+    font-size: 40px;
+}
+hr{
+    margin-top: 50px;
+    margin: 40px 50px;
+    background-color: #F2E3BB;
+    height: 0.5px;   
+}
+#about h2{
+    margin-bottom:30px;
+    font-weight: bold;
+}
+#about p{
+    line-height:1.6;
+    margin-left:30px;
+}
+#skills{
+    margin: 40px 50px;
+    color: #F2E3BB;
+    font-size: 40px;
+    height: 520px;
+}
+#skills p{
+    font-size:23px;
+    color:#F2E3BB;
+}
+#skills h2{
+    margin-top:5px;
+}
+.vertical-line{
+    height:2px;
+    width:1150px;
+    background-color: #F2E3BB;
+    margin-top: 100px;
+    display:flex;
+    justify-content: center;
+    font-size:34px;
+    /* flex-wrap: wrap; */
+}
+.vertical{
+    height: 90px;
+    width: 2px;
+    background-color: #F2E3BB;
+    margin:0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    text-align: center;    
+}
+.vertical-line img{
+    height: 60px;
+    width: 60px;
+    margin-bottom: 90px;
+    margin-top: -69px;
+}
+.section-title{
+    font-weight:bold;
+    margin-top: 10px;
+}
+.content{
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: -72px;
+    margin-right: -102px;
+    text-align:justify;
+}
+#projects{
+    margin: 40px 50px;
+    color: #F2E3BB;
+    font-size: 40px;
+    height: 2000px;
+}
+#projects h2{
+    margin-bottom:20px;
+}
+#project1-content{
+    font-size: 30px;
+    margin-top: -17px;
+    margin-left: 41px;
+    line-height: 1.3;
+}
+#tech{
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: -20px;
+}
+#project1-technologies{
+    margin-top: 13px;
+}
+#project1-image img{
+    height: 300px;
+    position: relative;
+    top: 37px;
+    border-radius: 25px;
+    left: 37px;
+}
+#url ,#github_url{
+    padding: 9px 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f3dfa8;
+    color: #4b744e;
+    font-size: 27px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 80px;
+    margin-left:110px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.1s ease, background-color 0.1s ease;
+}
+#url:active ,#github_url:active{
+    transform: scale(0.95);
+}
+#url:hover ,#github_url:hover{
+    background-color: #0e2310;
+    color: #f1e4be;
 }
