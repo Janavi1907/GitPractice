@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Website</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/jpg" href="js logo.jpg">
   </head>
   <body>
     <header id="header">
@@ -25,7 +26,9 @@
             <div id="secondline">I'm CSE -Data Science student</div>
             <div>and i'm learning web development and Data Science</div>
           </div>
-          <button id="projects-btn">View Projects</button>
+          <a href="#projects">
+            <button id="projects-btn">View Projects</button>
+          </a>
         </div>
         <div id="right-Section">
           <img src="bg.png" alt="image" />
@@ -92,13 +95,44 @@
             <img src="rock-paper-scissors game.png" alt="Game">
           </div>
           <div id="project1-buttons">
-            <button id="url">View Project</button>
+            <a href="https://your-project-link" target="_blank" style="text-decoration: none;">
+              <button id="url">View Project</button>
+            </a>
+            <a href="https://github.com/Janavi1907" target="_blank">
             <button id="github_url">Github</button>
+            </a>
           </div>
         </div>
       </section><hr>
-      <section id="contact"></section>
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <div id="email">
+          <div style="font-weight: 600; position: relative; right: -28px;">Email📧:</div>
+           <a href="mailto:janavimegu36@gmail.com" target="_blank">janavimegu36@gmail.com</a>
+        </div>
+        <div id="phone">
+          <div style="font-weight: 600; position: relative; right: -28px;">Phone📞:</div>
+          <a href="tel:8762908763">+91 8762908763</a>
+        </div>
+        <div id="location">
+          <div style="font-weight: 600; position: relative; right: -28px;">Location📍:</div>
+          <div style="position: relative; right: -78px; top: 8px;;">Bangalore,Karnataka</div>
+        </div>
+        <div id="github-link">
+          <div style="font-weight: 600; position: relative; right: -28px;">Github👨‍💻:</div>
+          <a href="https://github.com/Janavi1907" target="_blank">Visit my GitHub →</a>
+        </div>
+        <div id="linkedIn">
+          <div style="font-weight: 600; position: relative; right: -28px;">Linkedin🔗:</div>
+          <a href="" target="_blank">Visit my LinkedIn →</a>
+        </div>
+      </section><hr>
     </main>
+    <footer id="footer">
+      <div>&copy; 2026 Janavi S. All rights reserved.</div>
+      <div>Designed and Developed by Janavi S</div>
+      <div>Built using HTML, CSS, and JavaScript</div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

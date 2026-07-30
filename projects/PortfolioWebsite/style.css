@@ -4,6 +4,13 @@
     box-sizing: border-box;
     font-family:'garamond',serif;
 }
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+html{
+    scroll-behavior:smooth;
+}
 body{
     background-color: #4b744e;
 }
@@ -119,13 +126,11 @@ hr{
 }
 .vertical-line{
     height:2px;
-    width:1150px;
     background-color: #F2E3BB;
     margin-top: 100px;
     display:flex;
     justify-content: center;
     font-size:34px;
-    /* flex-wrap: wrap; */
 }
 .vertical{
     height: 90px;
@@ -158,7 +163,7 @@ hr{
     margin: 40px 50px;
     color: #F2E3BB;
     font-size: 40px;
-    height: 2000px;
+    height: 940px;
 }
 #projects h2{
     margin-bottom:20px;
@@ -205,3 +210,42 @@ hr{
     background-color: #0e2310;
     color: #f1e4be;
 }
+#contact{
+    margin: 40px 50px;
+    color: #F2E3BB;
+    font-size: 40px;
+}
+#email,#phone,#location,#github-link,#linkedIn{
+    margin-top: 20px;
+    font-size: 25px;
+}
+#email a,#phone a,#location a,#github-link a,#linkedIn a{
+    color: #F2E3BB;
+    text-decoration: none;
+    position: relative;
+    right: -78px;
+    top: 8px;
+}
+#email a:hover,#phone a:hover,#location a:hover,#github-link a:hover,#linkedIn a:hover{
+    text-decoration: underline;
+}
+#footer{
+    margin: 40px 50px;
+    color: #F2E3BB;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-direction: column;
+}
+#footer div{
+    color: #F2E3BB;
+}
+#footer div:hover{
+    text-decoration: underline;
+}
+#footer a{
+    text-decoration: none;
+}
+
