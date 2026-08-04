@@ -5,6 +5,9 @@
 }
 body{
     font-family:'lucida sans', 'lucida sans regular', 'lucida grande', 'lucida sans unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .Background-image{
     position: fixed;
@@ -17,21 +20,21 @@ body{
 }
 .heading{
     text-align: center;
-    font-size: 1.9rem;
+    font-size: 1.4rem;
     color: #271c70;
-    margin-top: 25px;
+    margin-top: 10px;
     text-shadow: 5px 5px 10px rgba(32, 12, 99, 0.4);
 }
 .search-container{
     display: flex;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 30px;
     gap: 40px;
 }
 #city-input{
-    font-size: 30px;
+    font-size: 22px;
     border-radius: 8px;
-    padding: 8px;
+    padding: 5px;
     color: #162E93;
     border: none;
     background-color: #E3F2FD;
@@ -41,8 +44,8 @@ body{
     outline-color: #a8d7fd;
 }
 #search-btn{
-    padding: 10px;
-    font-size: 30px;
+    padding: 8px;
+    font-size: 22px;
     border: none;
     border-radius: 8px;
     background-color: #E3F2FD;
@@ -65,8 +68,8 @@ body{
     display: flex;
     flex-direction: column;
     color: #162E93;
-    font-size: 40px;
-    margin-top: 33px;
+    font-size: 23px;
+    margin-top: 20px;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -77,19 +80,45 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 65px;
 }
 #text-content{
     border: 2px solid #627bdf;
     border-radius: 8px;
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 15px;
     background: rgba(255,255,255,0.2);
     backdrop-filter: blur(8px);
     border-radius:20px;
-    width:fit-content;
+    width:800px;
+    max-width: 90%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+#weather-icon {
+    width: 150px;
+    height: 150px;
+}
+
+#description,#temp{
+    text-align: center;
+    font-size:30px;
+}
+#humidity img ,#Wind-speed img{
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
     position: relative;
-    left: 300px;
+    bottom: -8px;
+}
+#text-content{
+    display: none;
+}
+#error{
+    display: none;
+    text-align: left;
+    margin-left: 10px;
+    color: red;
+    font-size: 30px;
+    margin-top: 20px;
 }
 

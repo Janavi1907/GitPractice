@@ -15,19 +15,24 @@
       <input type="text" placeholder="Enter city name..." id="city-input" />
       <button id="search-btn">Search</button>
     </div>
+    <div id="error">
+      <p>City not found.</p>
+      <p>Please enter a valid city.</p>
+    </div>
     <div id="text-content">
       <div class="weather-terms">
-        <div id="cityName">City Name: <span id="city-value">--</span></div>
+        <h2 id="cityName">City: --</h2>
         <div class="temp-container">
-          <div id="weather-icon">☁️</div>
-          <div id="temp">25°C</div>
-          <div id="description">Cloudy</div>
+          <div style="align-items: center; display: flex; justify-content: center; gap: 10px"><img id="weather-icon" src="" alt=""></div>
+          <div id="temp"></div>
+          <div id="description"></div>
         </div>
         <div id="horizontal">
-          <div id="humidity">💧Humidity: <span id="humidity-value">--</span></div>
-          <div id="Wind-speed">🌬️Wind Speed: <span id="wind-value">--</span></div>
-        </div>
+            <div id="humidity"> <img src="humidity.png" alt="Humidity"><span id="word">Humidity: </span><span id="humidity-value">--</span></div>
+            <div id="Wind-speed"><img src="wind.png" alt="Wind-Speed">Wind Speed: <span id="wind-value">--</span></div>
+          </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
