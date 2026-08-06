@@ -7,22 +7,24 @@ cityinput.addEventListener("keypress", function(event){
     }
 });
 searchbtn.addEventListener("click", function (e) {
-  let city = cityinput.value;
+  const city = cityinput.value;
   if(city.trim() === ""){
     alert("Please enter a city.");
     document.getElementById("text-content").style.display = "none";
     return;
 }
-  let p = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=602a142539304ffe60bd48026338c37c&units=metric`);
-  p.then((value) => {
-    return value.json();
-  }).then((data) => {
-    console.log(data);
-    if (data.cod == "404") {
-      document.getElementById("error").style.display = "block";
-      document.getElementById("text-content").style.display = "none";
-    } 
-    else {
+  getWeather(city);
+});
+async function getWeather(city){
+  try{
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=602a142539304ffe60bd48026338c37c&units=metric`);
+    const data = await response.json();
+    if(data.cod == "404"){
+      document.getElementById("error").style.display="block";
+      document.getElementById("text-content").style.display="none";
+      return;
+    }
+    else{
       document.getElementById("cityName").innerHTML = `City: ${data.name}`;
       document.getElementById("temp").innerHTML =Math.floor(data.main.temp) + "°C";
       document.getElementById("description").innerHTML =data.weather[0].description;
@@ -51,5 +53,12 @@ searchbtn.addEventListener("click", function (e) {
       document.getElementById("text-content").style.display = "block";
       document.getElementById("error").style.display = "none";
     }
-  });
-});
+  }
+  catch (error) {
+  console.error("Error fetching weather data:", error);
+  document.getElementById("error").style.display = "block";
+  document.getElementById("text-content").style.display = "none";
+  }
+}
+
+
