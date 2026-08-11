@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Student-Marks-Calculator</title>
+  </head>
+  <body>
+    <header id="Project-title">
+      <div id="title">Student Marks Calculator</div>
+    </header>
+    <main>
+      <div id="container">
+        <div id="name-container">
+          <label for="name">Name :</label>
+          <input type="text" id="name" />
+        </div>
+        <div id="USN-container">
+          <label for="USN">USN :</label>
+          <input type="text" id="USN" />
+        </div>
+        <div id="sub_marks">
+          <h3>Subjects Marks :</h3>
+          <div id="sub-1">
+            <label for="sub_marks1">Subject 1 :</label>
+            <input type="number" id="sub_marks1" min="0" max="100"/><br />
+          </div>
+          <div id="sub-2">
+            <label for="sub_marks2">Subject 2 :</label>
+            <input type="number" id="sub_marks2" min="0" max="100" /><br />
+          </div>
+          <div id="sub-3">
+            <label for="sub_marks3">Subject 3 :</label>
+            <input type="number" id="sub_marks3" min="0" max="100"/><br />
+          </div>
+          <div id="sub-4">
+            <label for="sub_marks4">Subject 4 :</label>
+            <input type="number" id="sub_marks4" min="0" max="100" /><br />
+          </div>
+          <div id="sub-5">
+            <label for="sub_marks5">Subject 5 :</label>
+            <input type="number" id="sub_marks5" min="0" max="100" />
+          </div>
+        </div>
+        <div id="result-btn">
+          <button id="btn">Calculate Results</button>
+        </div>
+        <div id="result-container">
+          <h3>Report Card</h3>
+          <div id="name-output">Name : <span id="name-output-value"> ---</span></div>
+          <div id="USN-output">USN : <span id="USN-output-value"> ---</span></div>
+          <div id="total-marks">Total Marks : <span id="total-marks-value"> ---</span></div>
+          <div id="average">Average : <span id="average-value"> ---</span></div>
+          <div id="percentage">Percentage : <span id="percentage-value"> ---</span></div>
+          <div id="result">Result : <span id="result-value"> ---</span></div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

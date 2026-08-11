@@ -1,0 +1,83 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+    background-color:#FFFCE1;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+#Project-title{
+    background-color: #eee9bb;
+    text-align:center;
+    font-size:60px;
+    padding:20px;
+    color:#8B639B;
+    font-weight:bold;
+}
+#container{
+    color:#AF719D;
+    font-size:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding-top:40px;
+    gap:20px;
+}
+#container input{
+    border: 3px solid #eee9bb;
+    padding:5px;
+    border-radius:10px;
+    font-size:25px;
+    background-color:#FFFCE1;
+    font-weight:400;
+    color:#8B639B;
+}
+#container input:invalid {
+  border: 2px solid red;
+  background-color: #ffcccc;
+}
+#container input:focus{
+    outline-color: #eee9bb;
+}
+#sub_marks h3,#result-container h3{
+    margin-bottom: 20px;
+}
+#sub-1,#sub-2,#sub-3,#sub-4,#sub-5,#total-marks,#average,#percentage,#result,#name-output,#USN-output{
+    margin-bottom: 20px;
+    margin-left:50px;
+}
+#btn{
+    padding:10px;
+    font-size:25px;
+    border-radius:10px;
+    background-color:#8B639B;
+    color:#FFFCE1;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+#btn:hover{
+    background-color:#AF719D;
+    cursor:pointer;
+}
+#btn:active{
+    transform: scale(0.95); 
+}
+#result-container{
+    border: 3px solid #eee9bb;
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    border-radius:20px;
+    width:600px;
+    max-width: 90%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    text-align:center;
+    display:none;
+}
+#total-marks,#average,#percentage,#result,#name-output,#USN-output{
+    text-align:left;
+}
+
