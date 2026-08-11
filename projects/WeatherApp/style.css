@@ -84,7 +84,7 @@ body{
 }
 #text-content{
     border: 2px solid #627bdf;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     margin-top: 30px;
     padding: 15px;
     background: rgba(255,255,255,0.2);
