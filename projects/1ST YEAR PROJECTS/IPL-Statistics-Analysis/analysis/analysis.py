@@ -39,6 +39,7 @@ print("Player Statistics")
 # Most-awarded Player of the Match
 most_pom=df["player_of_match"].value_counts().index[0]
 print("Most awarded Player of the Match:",most_pom)
+print("Most awarded player of the Match award count:",df["player_of_match"].value_counts().max())
 print("Second-most awarded Player of the Match:",df["player_of_match"].value_counts().index[1])
 print("Third-most awarded Player of the Match:",df["player_of_match"].value_counts().index[2])
 # Top players
@@ -105,4 +106,3 @@ print("MI wins in Mumbai:",MI_wins_mumbai_count)
 #The most common toss decision is field
 #The percentage of tosses resulted in the toss winner also winning the match is 50.52%
 #Mumbai Indians had a higher toss-to-match-win percentage than Chennai Super Kings in this analysis.
-
