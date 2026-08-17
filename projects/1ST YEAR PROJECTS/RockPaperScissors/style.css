@@ -22,14 +22,12 @@ body{
     justify-content: center;
     align-items: center;
     height: 200px;
-    gap: 60px;
-    margin: 50px;
-    font-size: 60px;
-    padding: 30px;
+    gap: 100px;
+    margin: 25px;
 }
 #choice, #compChoice, #result{
     text-align: center;
-    font-size: 45px;
+    font-size: 35px;
     font-weight: bold;
     color:#5A2A27;
     padding: 5px;
@@ -38,8 +36,7 @@ body{
 button{
     border-radius:50%;
     background-color: #A5978B;
-    padding: 30px;
-    font-size: 40px;
+    padding: 20px;
     color: #5A2A27;
     border:none;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
@@ -60,6 +57,51 @@ button img{
     filter: contrast(110%) brightness(105%);
     border-radius:20px;
 }
-button :active{
+button:active{
+    transform: scale(0.95); 
+}
+#scoreboard{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 50px;
+   font-size: 35px;
+   color: #5A2A27;
+   margin-top: 30px;
+   font-weight: bold;
+}
+#playerScore,#computerScore,#drawScore{
+   border: 3px solid #A5978B;
+   border-radius: 10px;
+   padding: 15px;
+}
+#pScore, #cScore, #dScore{
+    text-align:center;
+}
+#resetbtn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+#rbtn{
+    border-radius: 20px;
+    background-color: #A5978B;
+    padding: 20px;
+    color: #5A2A27;
+    border:none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    background-image: none;
+    font-size:28px;
+    font-weight:bold;
+}
+#rbtn:hover{
+    cursor: pointer;
+    background-color: #8D5B4C;
+    color:#C4BBAF;
+    transition: 0.2s ease;
+}
+#rbtn:active{
     transform: scale(0.95); 
 }
