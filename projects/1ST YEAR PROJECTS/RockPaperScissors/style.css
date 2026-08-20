@@ -22,8 +22,9 @@ body{
     justify-content: center;
     align-items: center;
     height: 200px;
-    gap: 100px;
-    margin: 25px;
+    gap: 50px;
+    margin: 25px auto;
+    max-width: 100%;
 }
 #choice, #compChoice, #result{
     text-align: center;
@@ -42,6 +43,7 @@ button{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     text-align: center;
     background-image: none;
+    flex-shrink: 0;
 }
 button:hover{
     cursor: pointer;
@@ -64,11 +66,12 @@ button:active{
    display: flex;
    align-items: center;
    justify-content: center;
-   gap: 50px;
+   gap: 30px;
    font-size: 35px;
    color: #5A2A27;
    margin-top: 30px;
    font-weight: bold;
+   padding:0 10px;
 }
 #playerScore,#computerScore,#drawScore{
    border: 3px solid #A5978B;
@@ -104,4 +107,46 @@ button:active{
 }
 #rbtn:active{
     transform: scale(0.95); 
+}
+@media screen and (max-width: 600px) {
+    #title {
+        font-size: 2rem; /* Shrinks huge title text */
+    }
+    
+    #buttons {
+        gap: 15px; /* Shrinks layout gaps between rock, paper, scissors */
+        height: auto;
+        margin: 20px 10px;
+    }
+
+    button {
+        padding: 10px; /* Makes the round button frame smaller */
+    }
+
+    button img {
+        width: 70px;  /* Scales down game hand images */
+        height: 70px;
+    }
+
+    #choice, #compChoice, #result {
+        font-size: 22px; /* Scales down game feedback text */
+    }
+
+    #scoreboard {
+        flex-direction: column; /* Stacks player, computer, and draw vertically */
+        gap: 15px;
+        font-size: 24px; /* Decreases score font size */
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #playerScore, #computerScore, #drawScore {
+        width: 100%; /* Spans full width when stacked vertically */
+        padding: 10px;
+    }
+    
+    #rbtn {
+        font-size: 22px; /* Scales down reset button text */
+        padding: 15px 40px;
+    }
 }
