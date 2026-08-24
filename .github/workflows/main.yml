@@ -1,11 +1,11 @@
-name: Deploy Portfolio Website
+name: Deploy Websites
 
 on:
   push:
     branches:
       - main
     paths:
-      - "projects/1ST YEAR PROJECTS/PortfolioWebsite/**"
+      - "projects/1ST YEAR PROJECTS/**"
       - ".github/workflows/main.yml"
   workflow_dispatch:
 
@@ -24,6 +24,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -31,10 +32,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload Portfolio Website
+      - name: Prepare websites
+        run: |
+          mkdir -p _site
+          cp -r "projects/1ST YEAR PROJECTS/PortfolioWebsite/." _site/
+          cp -r "projects/1ST YEAR PROJECTS/RockPaperScissors" _site/RockPaperScissors
+          cp -r "projects/1ST YEAR PROJECTS/WeatherApp" _site/WeatherApp
+          cp -r "projects/1ST YEAR PROJECTS/Student-Marks-Calculator" _site/Student-Marks-Calculator
+
+      - name: Upload websites
         uses: actions/upload-pages-artifact@v4
         with:
-          path: "projects/1ST YEAR PROJECTS/PortfolioWebsite"
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment
