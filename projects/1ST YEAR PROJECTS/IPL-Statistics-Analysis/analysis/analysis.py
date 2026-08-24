@@ -1,10 +1,13 @@
 # IPL Statistics Analysis
 # Project setup
+print("\n")
+print("IPL Statistics Analysis 🏏")
+print("\n")
 import pandas as pd
 df = pd.read_csv(r"c:\Users\Janavi S\OneDrive\Desktop\gitpractice\projects\1ST YEAR PROJECTS\IPL-Statistics-Analysis\data\Match_Info.csv")
 
 #Team Statistics
-print("Team Statistics")
+print("Team Statistics:")
 # Team with most wins
 most_wins=df["winner"].value_counts().index[0]
 print("Team with most wins:",most_wins)
@@ -32,10 +35,10 @@ CSK_percentage=(CSK_win_with_tosswin_count/CSK_toss_win_count)*100
 MI_percentage=(MI_win_with_tosswin_count/MI_toss_win_count)*100
 print("CSK toss-to-match win percentage:",CSK_percentage.__round__(2),"%")
 print("MI toss-to-match win percentage:",MI_percentage.__round__(2),"%")
-
+print("\n")
 
 #Player Statistics
-print("Player Statistics")
+print("Player Statistics:")
 # Most-awarded Player of the Match
 most_pom=df["player_of_match"].value_counts().index[0]
 print("Most awarded Player of the Match:",most_pom)
@@ -52,10 +55,10 @@ print("Percentage of top player:",percentage_top_players.__round__(2),"%")
 #Unique Player of the Match recipients
 unquie_players=df["player_of_match"].nunique()
 print("Unique Player of the Match recipients:",unquie_players)
-
+print("\n")
 
 #Toss Analysis
-print("Toss Analysis")
+print("Toss Analysis:")
 #Most common toss decision
 toss_decision=df["toss_decision"].value_counts().index[0]
 print("Most common toss decision:",toss_decision)
@@ -72,10 +75,10 @@ print("Toss and Match win Same percentage",percentage.round(2),"%")
 RCB_toss=df[(df["toss_winner"]=="Royal Challengers Bangalore")|(df["toss_winner"]=="Royal Challengers Bengaluru")]
 RCB_toss_count=RCB_toss.shape[0]
 print("RCB won the toss:",RCB_toss_count)
-
+print("\n")
 
 #Filters & Analysis
-print("Filters & Analysis")
+print("Filters & Analysis:")
 #Selected team analysis
 RCB_win=df[(df["winner"]=="Royal Challengers Bangalore")|(df["winner"]=="Royal Challengers Bengaluru")]
 RCB_win_count=RCB_win.shape[0]
@@ -99,6 +102,7 @@ print("Banglore matches Count:",banglore_matches_count)
 MI_wins_mumbai=df[(df["winner"]=="Mumbai Indians")&(df["city"]=="Mumbai")]
 MI_wins_mumbai_count=MI_wins_mumbai.shape[0]
 print("MI wins in Mumbai:",MI_wins_mumbai_count)
+
 
 #SUMMARY
 #A Team with most wins is Mumbai Indians
