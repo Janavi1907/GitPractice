@@ -121,4 +121,59 @@ body{
     font-size: 30px;
     margin-top: 20px;
 }
+@media screen and (max-width: 600px){
+    .heading {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+    .search-container {
+        flex-direction: column; /* Stacks input box and button into a column */
+        gap: 15px;              /* Reduces large 40px gap spacer */
+        width: 90%;
+        align-items: center;
+    }
+    #city-input, #search-btn {
+        width: 100%;            /* Forces buttons to match width evenly */
+        text-align: center;
+        font-size: 20px;        /* Smooth readable touch targets */
+        padding: 10px;
+    }
+    #text-content {
+        margin-top: 20px;
+        padding: 20px 10px;
+        width: 95% !important;  /* Overrides unshrinkable 800px desktop dimensions */
+    }
+    .weather-terms {
+        font-size: 20px;        /* Shrinks core title display values */
+        gap: 15px;
+    }
+    #weather-icon {
+        width: 100px;           /* Scales image block to match screen ratios */
+        height: 100px;
+    }
+     #description, #temp {
+        font-size: 24px;
+    }
+    #horizontal {
+        flex-direction: column; /* Changes details boxes from horizontal to vertical rows */
+        gap: 20px;              /* Removes the wide 65px horizontal side gap */
+        width: 100%;
+        align-items: flex-start; /* Aligns indicators straight on the left edge */
+        padding-left: 15%;      /* Centers the grouped columns inside the display card */
+    }
+    #humidity, #Wind-speed {
+        font-size: 18px;
+    }
+    #humidity img, #Wind-speed img {
+        width: 38px;            /* Scales sub-icons down neatly */
+        height: 38px;
+        margin-right: 10px;
+    }
+    #error {
+        font-size: 20px;
+        text-align: center;
+        margin-left: 0;
+        width: 90%;
+    }
+}
 
