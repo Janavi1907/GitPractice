@@ -81,3 +81,61 @@ body{
     text-align:left;
 }
 
+@media screen and (max-width: 600px){
+    #Project-title {
+        font-size: 26px !important; /* Drops text size down to fit phones nicely */
+        padding: 15px 10px;
+    }
+     #container {
+        font-size: 20px;          /* Shrinks label font text size */
+        padding: 20px 10px;
+        width: 100%;
+        gap: 15px;
+    }
+    #name-container, #USN-container, 
+    #sub-1, #sub-2, #sub-3, #sub-4, #sub-5 {
+        display: flex;
+        flex-direction: column;   /* Stacks the input underneath its text label */
+        align-items: center;      /* Centers elements perfectly on screen */
+        width: 90%;
+        margin-left: 0 !important; /* Strips out the 50px desktop shift */
+        gap: 6px;
+    }
+    #container input {
+        width: 100%;              /* Expands field horizontally to be fingers-tap friendly */
+        max-width: 280px;
+        text-align: center;       /* Centers input text entries */
+        padding: 8px;
+        font-size: 20px;
+    }
+    #sub_marks {
+        width: 100%;
+        text-align: center;
+    }
+    #sub_marks h3 {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+     #btn {
+        width: 90%;
+        max-width: 280px;
+        padding: 12px;
+        font-size: 22px;
+    }
+    #result-container {
+        width: 92% !important;    /* Overrides the strict 600px desktop dimensions */
+        padding: 20px 15px;
+        margin-top: 20px;
+    }
+    #result-container h3 {
+        font-size: 24px;
+    }
+    #total-marks, #average, #percentage, #result, #name-output, #USN-output {
+        margin-left: 0 !important; /* Removes layout shift that cuts text lines on phones */
+        font-size: 18px;
+        text-align: center;        /* Centers lines beautifully inside report card frame */
+        border-bottom: 1px dashed rgba(175, 113, 157, 0.2); /* Separates scores neatly */
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+}

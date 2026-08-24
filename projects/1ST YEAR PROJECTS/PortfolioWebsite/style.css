@@ -178,7 +178,6 @@ hr{
     font-size: 20px;
     line-height: 1.6;
     color: #F2E3BB;
-    text-align: justify;
 }
 #projects{
     margin: 40px 50px;
@@ -440,7 +439,7 @@ hr{
     }
 
     #contact a, #contact div {
-        position: static !important;           /* Erases relative positions breaking boundaries */
+        position: static !important;      
         margin-left: 0 !important;
         text-align: center !important;
     }
