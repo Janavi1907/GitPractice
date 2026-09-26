@@ -40,5 +40,3 @@ print("Number of H's in word:",Count_H)
 print("Number of e's in word:",Count_e)
 print("Number of l's in word:",Count_l)
 print("Number of o's in word:",Count_o)
-
-
